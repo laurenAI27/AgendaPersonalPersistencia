@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Insertar_Contacto">
+
+    <TextView
+        android:id="@+id/tvbbdd"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:text="Datos del nuevo Contacto"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/etname"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:ems="10"
+        android:hint="Nombre del Contacto"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etmobile"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:hint="Movil del Contacto"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etmail"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:ems="10"
+        android:hint="Email del Contacto"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btinsert"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Insertar Contacto" />
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Mostrar_Datos_Contacto">
+
+    <TextView
+        android:id="@+id/tvdatos"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="Datos Contacto"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_id"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:ems="10"
+        android:hint="id"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_nomb"
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:ems="10"
+        android:hint="nombre"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_movil"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:ems="10"
+        android:hint="movil"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_mail"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:ems="10"
+        android:hint="email"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/bt_modificar"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:text="Modificar Contacto" />
+
+    <Button
+        android:id="@+id/bt_eliminar"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:text="Eliminar Contacto" />
+</LinearLayout>

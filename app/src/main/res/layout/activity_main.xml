@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvtituloBBDD"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="BBDD de Contactos"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btinsertar"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:text="Insertar Contacto" />
+
+    <Button
+        android:id="@+id/btborrar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Borrar Contacto" />
+
+    <Button
+        android:id="@+id/btbuscar"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:text="Buscar Contacto" />
+
+    <Button
+        android:id="@+id/btlistado"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Listado Contactos" />
+
+    <Spinner
+        android:id="@+id/spinnercolor"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+</LinearLayout>
