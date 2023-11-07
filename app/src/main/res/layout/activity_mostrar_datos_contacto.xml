@@ -15,36 +15,36 @@
         android:textAlignment="center"
         android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/et_id"
+    <TextView
+        android:id="@+id/tv_id"
         android:layout_width="match_parent"
         android:layout_height="76dp"
-        android:ems="10"
         android:hint="id"
+        android:ems="10"
         android:inputType="text" />
 
-    <EditText
-        android:id="@+id/et_nomb"
+    <TextView
+        android:id="@+id/tv_nomb"
         android:layout_width="match_parent"
         android:layout_height="89dp"
-        android:ems="10"
         android:hint="nombre"
+        android:ems="10"
         android:inputType="text" />
 
-    <EditText
-        android:id="@+id/et_movil"
+    <TextView
+        android:id="@+id/tv_movil"
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:ems="10"
         android:hint="movil"
+        android:ems="10"
         android:inputType="text" />
 
-    <EditText
-        android:id="@+id/et_mail"
+    <TextView
+        android:id="@+id/tv_mail"
         android:layout_width="match_parent"
         android:layout_height="84dp"
-        android:ems="10"
         android:hint="email"
+        android:ems="10"
         android:inputType="text" />
 
     <Button

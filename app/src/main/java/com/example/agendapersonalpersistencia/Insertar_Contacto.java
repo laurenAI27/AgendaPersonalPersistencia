@@ -66,6 +66,7 @@ public class Insertar_Contacto extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No ha sido insertado", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     public void Buscar(){

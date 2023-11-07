@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class Lista_Contacto extends AppCompatActivity {
 
     private SQLiteOpenHelper dbHelper;
-    private ScrollView scroll;
     private LinearLayout listaContenedor;
 
     @SuppressLint("Range")
@@ -30,11 +29,10 @@ public class Lista_Contacto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_contacto);
 
-        scroll = findViewById(R.id.sc_listado);
         listaContenedor = findViewById(R.id.llout_listado);
 
-        dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        /*dbHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();*/
 
         mostrarContactos();
 
@@ -50,7 +48,7 @@ public class Lista_Contacto extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent pantallaDatoContacto = new Intent(Lista_Contacto.this, Mostrar_Datos_Contacto.class);
-                    pantallaDatoContacto.putExtra("DATO_CONTACTO", (Serializable) finalContact);
+                    pantallaDatoContacto.putExtra("DATO_CONTACTO",  finalContact);
                     startActivity(pantallaDatoContacto);
                 }
             });

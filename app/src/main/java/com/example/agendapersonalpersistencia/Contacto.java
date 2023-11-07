@@ -1,6 +1,8 @@
 package com.example.agendapersonalpersistencia;
 
-public class Contacto {
+import java.io.Serializable;
+
+public class Contacto implements Serializable {
 
     //Creación de los atributos de la clase
     private int id;
