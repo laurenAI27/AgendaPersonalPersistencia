@@ -3,21 +3,22 @@ package com.example.agendapersonalpersistencia;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.database.Cursor;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.ArrayList;
+import android.widget.Toast;
 
 public class Mostrar_Datos_Contacto extends AppCompatActivity {
 
     private TextView tvtxt_id, tvtxt_name, tvtxt_phone, tvtxt_mail;
     private Button btn_delete;
     private SQLiteOpenHelper dbHelper;
+
+    private int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +38,39 @@ public class Mostrar_Datos_Contacto extends AppCompatActivity {
 
 
 
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                id = 0;
+                if(eliminarContacto(id)){
+                 lista();
+                }
+
+            }
+        });
 
     }
     @SuppressLint("Range")
-    public void eliminarContacto () {
+    public boolean eliminarContacto (int id) {
         dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        ArrayList<Contacto> listaContactos = new ArrayList<>();
-        Contacto contact = null;
-        Cursor cursorContacto = null;
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        cursorContacto = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_CLIENTES, null);
+        boolean eliminado = false;
+      /*  ArrayList<Contacto> listaContactos = new ArrayList<>();
+        Contacto contact = null;
+        Cursor cursorContacto = null;*/
+        try {
+            /**/int rowsDeleted = db.delete(DatabaseHelper.TABLE_CLIENTES, DatabaseHelper.COLUMN_ID + "=?", new String[]{String.valueOf(id)});
+              db.execSQL("DELETE FROM " + DatabaseHelper.TABLE_CLIENTES, new String[]{"WHERE id = " + id + "LIMIT 1"});
+            eliminado = true;
+            Toast.makeText(this, "Contacto eliminado", Toast.LENGTH_SHORT).show();
+        } catch (Exception exception) {
+            exception.toString();
+            eliminado = false;
+            Toast.makeText(this, "Contacto no se ha eliminado", Toast.LENGTH_SHORT).show();
+        } finally {
+            db.close();
+        /*cursorContacto = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_CLIENTES, null);
         if (cursorContacto.moveToFirst()) {
             do {
                 contact = new Contacto();
@@ -56,8 +79,14 @@ public class Mostrar_Datos_Contacto extends AppCompatActivity {
                 contact.setMovil(cursorContacto.getString(cursorContacto.getColumnIndex(DatabaseHelper.COLUMN_MOVIL)));
                 contact.setEmail(cursorContacto.getString(cursorContacto.getColumnIndex(DatabaseHelper.COLUMN_EMAIL)));
 
-                listaContactos.add(contact);
-            } while (cursorContacto.moveToNext());
+                listaContactos.remove(contact);
+            } while (cursorContacto.moveToNext());*/
         }
+        return eliminado;
+    }
+
+    private void lista(){
+        Intent intent = new Intent(this, Lista_Contacto.class);
+        startActivity(intent);
     }
 }
