@@ -14,9 +14,10 @@ import android.widget.Toast;
 
 public class Insertar_Contacto extends AppCompatActivity {
 
-   private EditText etxt_name, etxt_mobile, etxt_mail;
-   private Button bt_insert;
+    private EditText etxt_name, etxt_mobile, etxt_mail;
+    private Button bt_insert;
     private SQLiteOpenHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +40,9 @@ public class Insertar_Contacto extends AppCompatActivity {
     }
 
     //Método para insertar los contactos mediante la base de datos
-    public void Insertar(){
+    public void Insertar() {
 
-         dbHelper = new DatabaseHelper(this);
+        dbHelper = new DatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         //Declaracion de las variables para recuperar la información
@@ -50,7 +51,7 @@ public class Insertar_Contacto extends AppCompatActivity {
         String email = etxt_mail.getText().toString();
 
         //Condicion para los campos para rellenar los editText
-        if(!nombre.isEmpty() && !movil.isEmpty()){
+        if (!nombre.isEmpty() && !movil.isEmpty()) {
             ContentValues insertado = new ContentValues();
             //Se guarda en la base de datos los nombres proporcinados por el usuario
             insertado.put(DatabaseHelper.COLUMN_NOMBRE, nombre);
@@ -68,9 +69,10 @@ public class Insertar_Contacto extends AppCompatActivity {
         }
 
     }
+}
 
-    public void Buscar(){
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+    /*public void Buscar(){
+       *//* AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase baseDeDatos = admin.getWritableDatabase();
 
         String nombre = etxt_name.getText().toString();
@@ -88,5 +90,5 @@ public class Insertar_Contacto extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Tiene que introducir el nombre", Toast.LENGTH_SHORT).show();
         }
-    }
-}
+    }*//*
+}*/

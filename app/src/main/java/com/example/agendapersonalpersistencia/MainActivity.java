@@ -17,23 +17,27 @@ import android.widget.Spinner;
 import java.io.Serializable;
 
 //Se implementa el evento de la selección del Spinner
-public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     private Button botonInsertar;
     private Button botonListado;
     private Spinner spinner;
-
-    LinearLayout layout;
+    private LinearLayout layout;
+    private SharedPreferences lastColour;
+    private SharedPreferences.Editor controlador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        lastColour = getSharedPreferences("MySharedPreferences", MODE_PRIVATE);
+        controlador = lastColour.edit();
+        final  int escogido = lastColour.getInt("Selecionado", 0);
          layout = findViewById(R.id.llout);
          botonInsertar =(Button) findViewById(R.id.btinsertar);
          botonListado = (Button) findViewById(R.id.btlistado);
          spinner = (Spinner) findViewById(R.id.spinnercolor);
-        String [] colores = {"Azul claro", "Amarillo", "Verde", "Violeta"};
+
 
         //Se crea un adaptador de array para poder usar el spinner con su layout
         ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_color, android.R.layout.simple_spinner_item);
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Se implementa el adaptador al Spinner
         spinner.setAdapter(adapter);
+        spinner.setSelection(escogido);
 
 
         botonInsertar.setOnClickListener(new View.OnClickListener() {
@@ -59,43 +64,42 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
             }
         });
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            //Método para la llamada del Spinner y seleccionar la opción que va a ser elegida
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                controlador.putInt("Selecionado", position).commit();
+                switch (position){
+                    case 0:
+                        layout.setBackgroundColor(Color.WHITE);
+                        break;
+                    case 1:
+                        layout.setBackgroundColor(Color.WHITE);
+                        break;
+                    case 2:
+                        layout.setBackgroundColor(Color.parseColor("#33f0ff"));
+                        break;
+                    case 3:
+                        layout.setBackgroundColor(Color.parseColor("#ffec33"));
+                        break;
+                    case 4:
+                        layout.setBackgroundColor(Color.parseColor("#93ff33"));
+                        break;
+                    case 5:
+                        layout.setBackgroundColor(Color.parseColor("#bc80e3"));
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
-    //Método para la llamada del Spinner y seleccionar la opción que va a ser elegida
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
-        SharedPreferences preferencias = getSharedPreferences("colores_spinner", Context.MODE_PRIVATE);
-        int colorPrincipal = preferencias.getInt("color_proporcionado", 0);
-        //int obtenerColores ;
-        //obtenerColores = (int) jspinner.getSelectedItem();
-        switch (position) {
-            case 0:
-                layout.setBackgroundColor(Color.WHITE);
-                colorPrincipal = preferencias.getInt("color_proporcionado", position);
-                break;
-            case 1:
-                spinner.getSelectedItem().equals("Azul claro");
-                layout.setBackgroundColor(Color.parseColor("#00FFFF"));
-                break;
-            case 2:
-                spinner.getSelectedItem().equals("Amarillo");
-                layout.setBackgroundColor(Color.parseColor("#EBFF33"));
-                break;
-            case 3:
-                spinner.getSelectedItem().equals("Verde");
-                layout.setBackgroundColor(Color.parseColor("#33FF84"));
-                break;
-            case 4:
-                spinner.getSelectedItem().equals("Violeta");
-                layout.setBackgroundColor(Color.parseColor("#EE82EE"));
-                break;
-        }
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
 
-    }
 }

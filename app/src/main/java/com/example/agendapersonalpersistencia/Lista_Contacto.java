@@ -31,8 +31,6 @@ public class Lista_Contacto extends AppCompatActivity {
 
         listaContenedor = findViewById(R.id.llout_listado);
 
-        /*dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();*/
 
         mostrarContactos();
 
@@ -59,25 +57,6 @@ public class Lista_Contacto extends AppCompatActivity {
     }
 
     //Metodo para consultar un contacto
-   /* public void Listar() {
-        dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query(
-                DatabaseHelper.TABLE_CLIENTES,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
-        while (cursor.moveToNext()) {
-            @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID));
-            @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_NOMBRE));
-            @SuppressLint("Range") String movil = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_MOVIL));
-            @SuppressLint("Range") String email = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_EMAIL));
-        }
-    }*/
-
     @SuppressLint("Range")
     public ArrayList<Contacto> mostrarContactos(){
         dbHelper = new DatabaseHelper(this);

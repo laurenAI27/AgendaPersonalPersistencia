@@ -2,6 +2,7 @@
 <resources>
     <string-array name="spinner_color">
         <item>Seleccione un color</item>
+        <item>Blanco</item>
         <item>Azul claro</item>
         <item>Amarillo</item>
         <item>Verde</item>
