@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:text="Listado de Contactos"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 
     <ScrollView

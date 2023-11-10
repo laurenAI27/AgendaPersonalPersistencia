@@ -23,6 +23,8 @@ public class Insertar_Contacto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insertar_contacto);
 
+        getSupportActionBar().setTitle("Pantalla inicial");
+
         //Se les asocia el id de los objetos de la aplicacion
         etxt_name = findViewById(R.id.etname);
         etxt_mobile = findViewById(R.id.etmobile);
@@ -51,7 +53,7 @@ public class Insertar_Contacto extends AppCompatActivity {
         String email = etxt_mail.getText().toString();
 
         //Condicion para los campos para rellenar los editText
-        if (!nombre.isEmpty() && !movil.isEmpty()) {
+        if (!nombre.isEmpty() && !movil.isEmpty() && !email.isEmpty()) {
             ContentValues insertado = new ContentValues();
             //Se guarda en la base de datos los nombres proporcinados por el usuario
             insertado.put(DatabaseHelper.COLUMN_NOMBRE, nombre);
@@ -65,30 +67,9 @@ public class Insertar_Contacto extends AppCompatActivity {
             etxt_mail.setText("");
             Toast.makeText(this, "Contacto insertado", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "No ha sido insertado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Por favor, rellene los datos del contacto", Toast.LENGTH_SHORT).show();
         }
 
     }
 }
 
-    /*public void Buscar(){
-       *//* AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
-        SQLiteDatabase baseDeDatos = admin.getWritableDatabase();
-
-        String nombre = etxt_name.getText().toString();
-
-        if(!nombre.isEmpty()){
-            Cursor fila = baseDeDatos.rawQuery("select movil, email from tabla_clientes where nombre =" + nombre, null);
-                if(fila.moveToFirst()){
-                    etxt_mobile.setText(fila.getString(0));
-                    etxt_mail.setText(fila.getString(1));
-                    baseDeDatos.close();
-                } else {
-                    Toast.makeText(this, "No existe el contacto", Toast.LENGTH_SHORT).show();
-                    baseDeDatos.close();
-                }
-        } else {
-            Toast.makeText(this, "Tiene que introducir el nombre", Toast.LENGTH_SHORT).show();
-        }
-    }*//*
-}*/

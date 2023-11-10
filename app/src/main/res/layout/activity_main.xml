@@ -14,31 +14,35 @@
         android:layout_height="65dp"
         android:text="BBDD de Contactos"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/btinsertar"
         android:layout_width="match_parent"
         android:layout_height="62dp"
-        android:text="Insertar Contacto" />
+        android:text="Insertar Contacto"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btborrar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Borrar Contacto" />
+        android:text="Borrar Contacto"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btbuscar"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:text="Buscar Contacto" />
+        android:text="Buscar Contacto"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btlistado"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Listado Contactos" />
+        android:text="Listado Contactos"
+        android:textSize="16sp" />
 
     <Spinner
         android:id="@+id/spinnercolor"

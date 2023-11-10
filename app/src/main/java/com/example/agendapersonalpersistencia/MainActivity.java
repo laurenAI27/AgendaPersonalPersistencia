@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("Pantalla inicial");
+
         lastColour = getSharedPreferences("MySharedPreferences", MODE_PRIVATE);
         controlador = lastColour.edit();
         final  int escogido = lastColour.getInt("Selecionado", 0);

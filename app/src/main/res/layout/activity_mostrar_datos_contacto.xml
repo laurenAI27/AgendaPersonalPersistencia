@@ -13,49 +13,55 @@
         android:layout_height="64dp"
         android:text="Datos Contacto"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/tv_id"
         android:layout_width="match_parent"
         android:layout_height="76dp"
-        android:hint="id"
         android:ems="10"
-        android:inputType="text" />
+        android:hint="id"
+        android:inputType="text"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_nomb"
         android:layout_width="match_parent"
         android:layout_height="89dp"
-        android:hint="nombre"
         android:ems="10"
-        android:inputType="text" />
+        android:hint="nombre"
+        android:inputType="text"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_movil"
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:hint="movil"
         android:ems="10"
-        android:inputType="text" />
+        android:hint="movil"
+        android:inputType="text"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_mail"
         android:layout_width="match_parent"
         android:layout_height="84dp"
-        android:hint="email"
         android:ems="10"
-        android:inputType="text" />
+        android:hint="email"
+        android:inputType="text"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/bt_modificar"
         android:layout_width="match_parent"
         android:layout_height="66dp"
-        android:text="Modificar Contacto" />
+        android:text="Modificar Contacto"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/bt_eliminar"
         android:layout_width="match_parent"
         android:layout_height="67dp"
-        android:text="Eliminar Contacto" />
+        android:text="Eliminar Contacto"
+        android:textSize="16sp" />
 </LinearLayout>

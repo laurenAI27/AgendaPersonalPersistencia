@@ -22,6 +22,9 @@ public class Mostrar_Datos_Contacto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setTitle("Pantalla inicial");
+
         setContentView(R.layout.activity_mostrar_datos_contacto);
         tvtxt_id = findViewById(R.id.tv_id);
         tvtxt_name = findViewById(R.id.tv_nomb);
@@ -31,10 +34,10 @@ public class Mostrar_Datos_Contacto extends AppCompatActivity {
 
         Contacto contact = (Contacto) getIntent().getSerializableExtra("DATO_CONTACTO");
 
-        tvtxt_id.setText("ID: " + contact.getId());
-        tvtxt_name.setText("Nombre: " + contact.getNombre());
-        tvtxt_phone.setText("Movil: " + contact.getMovil());
-        tvtxt_mail.setText("Email: " + contact.getEmail());
+        tvtxt_id.setText("   ID: " + contact.getId());
+        tvtxt_name.setText("   Nombre: " + contact.getNombre());
+        tvtxt_phone.setText("   Movil: " + contact.getMovil());
+        tvtxt_mail.setText("   Email: " + contact.getEmail());
 
 
         dbHelper = new DatabaseHelper(this);
